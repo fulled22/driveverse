@@ -33,6 +33,12 @@ jobs:
               plistlib.dump(config, f)
           PY
 
+      - name: Install XcodeGen
+        run: brew install xcodegen
+
+      - name: Regenerate Xcode project
+        run: ./scripts/generate.sh
+
       - name: Build DriveVerse
         run: |
           xcodebuild \
